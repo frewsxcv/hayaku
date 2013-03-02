@@ -28,6 +28,7 @@ except ImportError:
 COLOR_REGEX = re.compile(r'#([0-9a-fA-F]{3,6})')
 COMPLEX_COLOR_REGEX = re.compile(r'^\s*(#?([a-fA-F\d]{3}|[a-fA-F\d]{6})|(rgb|hsl)a?\([^\)]+\))\s*$')
 IMAGE_REGEX = re.compile(r'^\s*([^\s]+\.(jpg|jpeg|gif|png))\s*$')
+CLIPBOARD_REGEX = re.compile(r'\s*([\w-]+)(?:\:|\s)\s*([^;\s](?:(?!(?<!:)\/[\/*])[^;\n])*)')
 
 CAPTURING_GROUPS = re.compile(r'(?<!\\)\((?!\?[^<])')
 CAPTURES = re.compile(r'(\(\?|\$)(\d+)|^(\d)')
@@ -418,6 +419,12 @@ def make_template(args, options):
                             quote_symbol = options.get('CSS_syntax_quote_symbol')
                         snippet_parts['default'] = 'url(' + quote_symbol + check_clipboard_for_image.group(1) + quote_symbol + ')'
 
+                # Look into the clipboard if it contains anything similar to
+                search_clipboard_for_value = CLIPBOARD_REGEX.match(clipboard)
+                if search_clipboard_for_value:
+                    # We need to check if this value could be applied to the current property for findall()
+                    snippet_parts['default'] = search_clipboard_for_value.group(2)
+                    print search_clipboard_for_value.group(2)
 
     snippet_parts['value'] = value or ''
 
