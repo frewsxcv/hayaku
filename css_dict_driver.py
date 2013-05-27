@@ -41,7 +41,7 @@ def get_css_dict():
     if get_css_dict_cache is not None:
         return get_css_dict_cache
     else:
-        CSS_DICT_DIR = 'dictionaries'
+        CSS_DICT_DIR = 'hayaku/dictionaries' # FIXME: need proper relative url to dictionaries
         CSS_DICT_FILENAME = 'hayaku_CSS_dictionary.json'
         DICT_KEY = 'hayaku_CSS_dictionary'
 

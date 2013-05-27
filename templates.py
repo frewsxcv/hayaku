@@ -3,7 +3,10 @@ import json
 import os
 import re
 
-import sublime
+try:
+    import sublime
+except Exception:
+    pass
 
 def import_dir(name, fromlist=()):
     PACKAGE_EXT = '.sublime-package'
