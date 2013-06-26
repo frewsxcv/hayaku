@@ -89,4 +89,11 @@
             {"key": "hayaku_going_down"}
         ]
     }
+
+    //  cycle
+    ,    {
+        "keys": ["super+alt+a"],
+        "command": "hayaku_cycling_through_values"
+    }
+
 ]
