@@ -165,7 +165,7 @@ class HayakuCyclingThroughValues(sublime_plugin.TextCommand):
         second = self.view.substr(sublime.Region(cur_pos, line_region.end()))
 
         # TODO: создавать regex в зависимости от настройки с двоеточием
-        first_re = re.search(r'([a-z-]+)\s+:\s*([a-z-]+)+$', first)
+        first_re = re.search(r'([a-z-]+)\s*:\s*([a-z-]+)+$', first)
         second_re = re.search(r'^([a-z-]*)', second)
         if first_re is None or second_re is None:
             return
