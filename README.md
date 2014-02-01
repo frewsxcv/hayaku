@@ -1,4 +1,4 @@
-# Hayaku <sup>[1.3.3](https://github.com/hayaku/hayaku/blob/master/CHANGELOG.md)</sup>
+# Hayaku <sup>[1.3.6](https://github.com/hayaku/hayaku/blob/master/CHANGELOG.md)</sup>
 
 Hayaku is a bundle of useful scripts aiming for rapid front-end web development.
 
@@ -63,6 +63,22 @@ git clone git://github.com/hayaku/hayaku.git
 ```
 
 And then restart Sublime Text.
+
+## Note on autocomplete
+
+**Important:** Hayaku disables the autocomplete for CSS by default. This was made to remove the ambiguosity and confusion that could happen when you'll see one result in autocomplete and would get something different on pressing `tab`.
+
+You can restore the autocomplete by redefining the `auto_complete_selector` setting in your `User/Preferences.sublime-settings` to either the default value:
+
+``` JSON
+{
+    "auto_complete_selector": "source - comment, meta.tag - punctuation.definition.tag.begin"
+}
+```
+
+Or to anything other you'd like.
+
+However, for CSS scopes this would only enable the autocompletes by `enter`, the `tab` autocomplete would still run the Hayaku when possible.
 
 # Features
 
@@ -393,7 +409,7 @@ That would make `cF` to be expanded into `color: #FFFFFF`.
 
 “Hey! I don't need to write CSS faster — I use Preprocessors!” you could say. But, well, you would still need to write all those extra symbols, so abbreviations would fit preprocessors well. And as Hayaku is highly customizable, you could use it with any preprocessor: Sass, Less, Stylus etc.
 
-Right now only basic things are available, but in feature you could expand different mixins and functions too, so just wait for it.
+Right now only basic things are available, but in the future you could expand different mixins and functions too, so just wait for it.
 
 - - -
 
